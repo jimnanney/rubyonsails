@@ -17,6 +17,7 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
+gem 'bcrypt-ruby', '~>3.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'bourbon'
 gem 'uglifier', '>= 1.3.0'
