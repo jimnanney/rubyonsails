@@ -18,6 +18,7 @@ database.yml
 doc/
 *.swp
 *~
+.powenv
 .project
 .DS_Store
 .idea
