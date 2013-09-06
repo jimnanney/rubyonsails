@@ -75,7 +75,23 @@ footer {
       padding: 0 3%;
     }
   }
-  .pivotal { margin-left: 5px; }
+  .sponsors {
+    .neo, .dockyard, .github, .bluebox {
+      @include size(146px 146px);
+      margin-left: 5px; 
+      background-size: 100%;
+    }
+    .engineyard {
+      @include size(96px 180px);
+      margin-left: 25px;
+      background-size: 100%;
+    }
+    .pivotal, .hashrocket, .dockyard, .bluebox {
+      @include size(186px 100px);
+      margin-left: 0px;
+      background-size: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 470px) {
@@ -87,12 +103,17 @@ footer {
     &:last-child {
       margin-bottom: 0;
     }
+    .neo {
+      width: 146px;
+    }
+    .neo, .dockyard, .github, .bluebox {
+      width: 146px;
+      margin-left: 5px; 
+      background-size: 100%;
+    }
+    .pivotal, .hashrocket, .engineyard {
+      width: 180px;
+      background-size: 100%;
+    }
   }
-  .neo {
-    width: 145px;
-  }
-  .hashrocket {
-    @include size(146 80);
-  }
-  .pivotal { margin-left: 5px; }
 }
