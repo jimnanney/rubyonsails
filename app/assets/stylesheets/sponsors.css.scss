@@ -76,6 +76,7 @@ footer {
     }
   }
   .sponsors {
+    width: 186px;
     .neo, .dockyard, .github, .bluebox {
       @include size(146px 146px);
       margin-left: 5px; 
