@@ -76,21 +76,29 @@ footer {
     }
   }
   .sponsors {
-    width: 186px;
-    .neo, .dockyard, .github, .bluebox {
-      @include size(146px 146px);
+    width: 240px;
+    .pivotal {
+      @include size(240px 130px);
+    }
+    .neo, .dockyard, .bluebox {
+      @include size(200px 146px);
       margin-left: 5px; 
       background-size: 100%;
     }
-    .engineyard {
-      @include size(96px 180px);
-      margin-left: 25px;
+    .engineyard, .github {
+      @include size(120px 220px);
       background-size: 100%;
     }
-    .pivotal, .hashrocket, .dockyard, .bluebox {
-      @include size(186px 100px);
+    .github {
+      @include size(200px 220px);
+    }
+    .hashrocket {
+      @include size(210px 120px);
       margin-left: 0px;
       background-size: 100%;
+    }
+    .engineyard {
+      margin-left: 25px;
     }
   }
 }
