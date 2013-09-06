@@ -19,7 +19,9 @@
       <%= yield :features %>
     </div>
     <div class="description">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/sponsors' %>
     <%= render 'layouts/footer' %>

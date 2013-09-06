@@ -1,0 +1,98 @@
+.sponsors {
+  margin: 4% auto 5%;
+  width: 596px;
+  @include clearfix;
+  a {
+    display: block;
+  }
+}
+
+.sponsor {
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.pivotal {
+  background: url(image-path("pivotal.png")) no-repeat center;
+  @include size(440px 160px);
+}
+
+.neo {
+  background: url(image-path("neo.png")) no-repeat center;
+  @include size(138px 80px);
+}
+
+.hashrocket {
+  background: url(image-path("hashrocket.png")) no-repeat center;
+  @include size(190px 120px);
+}
+
+.dockyard {
+  background: url(image-path("dockyard.png")) no-repeat center;
+  @include size(223px 80px);
+}
+
+.engineyard {
+  background: url(image-path("engineyard.png")) no-repeat center;
+  @include size(102px 164px);
+}
+
+.bluebox {
+  background: url(image-path("bluebox.png")) no-repeat center;
+  @include size(238px 164px);
+}
+
+.github {
+  @include size(200px 164px);
+  background: url(image-path("Octocat.jpg")) no-repeat center;
+}
+
+.neo, .hashrocket, .dockyard, .github, .pivotal, .engineyard, .bluebox {
+  float: left;
+  background-size: 100%;
+  margin-bottom: 20px;
+}
+
+footer {
+  width: 94%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 6%;
+}
+
+@media screen and (max-width: 690px) {
+  .feature {
+    float: none;
+    width: 100%;
+    padding: 0 3%;
+    @include clearfix;
+    &:first-child {
+      padding: 0 3%;
+    }
+    &:last-child {
+      padding: 0 3%;
+    }
+  }
+  .pivotal { margin-left: 5px; }
+}
+
+@media screen and (max-width: 470px) {
+  .sponsors {
+    width: 146px;
+  }
+  .sponsor {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .neo {
+    width: 145px;
+  }
+  .hashrocket {
+    @include size(146 80);
+  }
+  .pivotal { margin-left: 5px; }
+}
