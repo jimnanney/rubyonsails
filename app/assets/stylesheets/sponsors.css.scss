@@ -76,7 +76,7 @@ footer {
     }
   }
   .sponsors {
-    width: 240px;
+    width: 250px;
     .pivotal {
       @include size(240px 130px);
     }
@@ -105,7 +105,7 @@ footer {
 
 @media screen and (max-width: 470px) {
   .sponsors {
-    width: 146px;
+    width: 180px;
   }
   .sponsor {
     margin-bottom: 40px;
