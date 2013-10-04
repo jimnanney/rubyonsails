@@ -11,6 +11,7 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'static_pages#home'
+  mount Monologue::Engine, at: '/news'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'newrelic_rpm'
+gem 'monologue', github: 'jipiboily/monologue', branch: 'master'
+gem 'tinymce-rails', '3.5.9pre2'
 
 group :doc do
   gem 'sdoc', require: false
