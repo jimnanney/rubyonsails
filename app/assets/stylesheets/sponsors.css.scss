@@ -49,7 +49,22 @@
   background: url(image-path("Octocat.jpg")) no-repeat center;
 }
 
-.neo, .hashrocket, .dockyard, .github, .pivotal, .engineyard, .bluebox {
+.rubycentral {
+  @include size(169px 200px);
+  background: url(image-path("Ruby_Central_Logo-med.png")) no-repeat center;
+}
+
+.dnsimple {
+  @include size(206px 80px);
+  background: url(image-path("DNSimple.png")) no-repeat center;
+}
+
+.soundcloud {
+  @include size(138px 220px);
+  background: url(image-path("sc-med_orange.png")) no-repeat center;
+}
+
+.neo, .hashrocket, .dockyard, .github, .pivotal, .engineyard, .bluebox, .rubycentral, .soundcloud, .dnsimple {
   float: left;
   background-size: 100%;
   margin-bottom: 20px;
@@ -99,6 +114,12 @@ footer {
     }
     .engineyard {
       margin-left: 25px;
+    }
+    .soundcloud {
+    }
+    .dnsimple {
+    }
+    .rubycentral {
     }
   }
 }
