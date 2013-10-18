@@ -64,7 +64,12 @@
   background: url(image-path("sc-med_orange.png")) no-repeat center;
 }
 
-.neo, .hashrocket, .dockyard, .github, .pivotal, .engineyard, .bluebox, .rubycentral, .soundcloud, .dnsimple {
+.devmynd {
+  @include size(180px 139px);
+  background: url(image-path("DevMynd-Logo.png")) no-repeat center;
+}
+
+.neo, .hashrocket, .dockyard, .github, .pivotal, .engineyard, .bluebox, .rubycentral, .soundcloud, .dnsimple, .devmynd {
   float: left;
   background-size: 100%;
   margin-bottom: 20px;
