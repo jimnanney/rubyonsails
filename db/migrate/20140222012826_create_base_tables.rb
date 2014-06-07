@@ -5,6 +5,7 @@ class CreateBaseTables < ActiveRecord::Migration
       t.string :oauth_uid, :null => false
       t.string :name, :null => false
       t.string :email, :null => false
+      t.text :bio, :null => true
       t.timestamps
 
       t.boolean :reviewer, :default => false

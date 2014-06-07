@@ -20,4 +20,5 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.raise_delivery_errors = true
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect"
+  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.eot *.ttf *.woff *.svg)
 end
