@@ -1,0 +1,35 @@
+.modal {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -9001;
+  position: fixed;
+  background: rgba(red(@white), green(@white), blue(@white), 0.9);
+  pointer-events: none;
+
+  h1 {
+    margin-bottom: 0.1em;
+  }
+
+  > div {
+    border: 1px solid @clouds;
+    width: 506px;
+    margin: 10% auto;
+    position: relative;
+    padding: @base-mp;
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  .close {
+    font-size: 2em;
+    top: @base-mp / 2;
+    text-decoration: none;
+    color: @belize-hole;
+    position: absolute;
+    right: @base-mp;
+    float: right;
+  }
+}

@@ -5,7 +5,13 @@ gem 'bourbon'
 gem 'bcrypt-ruby', '~>3.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
+gem "omniauth-github"
 gem 'jquery-rails'
+gem 'less-rails'
+gem 'therubyracer'
+gem 'content-pipeline'
+gem 'pygments.rb'
+gem "gemoji"
 gem 'rails', '4.1.1'
 
 group :development, :test do

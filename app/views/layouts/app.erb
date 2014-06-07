@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @title + " - " unless @title.blank? %>MVP</title>
+    <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab|PT+Sans" %>
+    <%= stylesheet_link_tag :application %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body id="ruby-on-sails" class="preload <%= controller_name %> <%= action_name %>">
+    <header class="navbar fixed" role="banner">
+      <div class="container">
+        <div class="row col-10 center">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand">
+              <span>Ruby On Sails</span>
+            </a>
+          </div>
+
+          <div class="pull-right col-10">
+            <nav role="navigation">
+              <ul><%= login_logout_link %></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <% if content_for?(:body) %>
+      <%= yield :body %>
+    <% else %>
+      <main>
+        <div class="container">
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+      </main>
+    <% end %>
+
+    <footer class="footbar<%= " #{footer_class}" if defined?(footer_class) %>">
+      <div class="container">
+        <div class="row <%= defined?(subfooter_class) ? subfooter_class : "col-10 center" %>">
+          <p class="col-6 text-left">Copyright 2014: Ruby on Sails</p>
+          <p class="col-6 text-right">Privacy ~ Terms ~ Contact Us</p>
+        </div>
+      </div>
+    </footer>
+
+    <% if content_for?(:extra_javascript) %>
+      <% yield :extra_javascript %>
+    <% end %>
+  </body>
+</html>
