@@ -1,0 +1,168 @@
+form {
+  .ClearFix();
+
+  .error {
+    display: none;
+  }
+
+  .hint {
+    color: @silver;
+    font-style: italic;
+  }
+
+  .row {
+    margin-bottom: @base-mp;
+    &.boolean {
+      label {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .form-label {
+    background: asset-url("noise.png") @clouds;
+    text-transform: uppercase;
+
+    &.readonly {
+      background-color: rgba(
+        red(desaturate(@sun-flower, 48%)),
+        green(desaturate(@sun-flower, 48%)),
+        blue(desaturate(@sun-flower, 48%)),
+        0.3
+      );
+    }
+  }
+
+  .form-input, .form-label {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: inline-block;
+    padding: @base-mp / 3;
+    font-size: @font-size;
+    line-height: 20px;
+    border: 1px solid @silver;
+    color: @asbestos;
+
+    &.textarea {
+      resize: vertical;
+      height: auto;
+      min-height: 8em;
+    }
+
+    &:focus {
+      outline: 0;
+      border: 1px solid @silver;
+    }
+  }
+
+  .form-input:not(.col-12) {
+    border-left: none;
+  }
+
+  input[type="submit"], input.btn, select {
+    text-transform: uppercase;
+    float: right;
+  }
+
+  select {
+    margin: (@base-mp / 3.7) 0 !important;
+  }
+
+  input[type="checkbox"] {
+    float: right !important;
+    width: auto;
+    box-shadow: none;
+    margin: (@base-mp / 5) 0 (@base-mp / 5);
+  }
+
+  input[type="file"] {
+    float: right;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .field_with_errors, .field-with-errors {
+    .form-input, .form-label {
+      border-color: @pomegranate;
+    }
+
+    .form-label {
+      color: @white;
+      background-color: @alizarin;
+    }
+  }
+
+  abbr[title="required"] {
+    border-bottom: 0;
+    outline: 0;
+    color: @pomegranate;
+  }
+}
+
+.md-editor {
+  display: block;
+
+  > .md-header, .md-footer {
+    display: block;
+    background: @white;
+
+    .btn {
+      border-bottom: 0 !important;
+      border-top: 0 !important;
+    }
+  }
+
+  > .md-header {
+    border: 1px solid @belize-hole;
+    .ClearFix();
+    margin: 0;
+
+    button {
+      float: left;
+      color: #fff;
+      margin-right: 0;
+      margin-left: -1px;
+      margin-bottom: 0;
+      box-shadow: none !important;
+    }
+
+    button[title="Preview"] {
+      float: right;
+    }
+
+    .btn-group:first-of-type > button:first-of-type {
+      margin-left: 0 !important;
+      border-left: none;
+    }
+  }
+
+  > .md-preview {
+    background: @white;
+    border-top: 1px dashed @silver;
+    border-bottom: 1px dashed @silver;
+    min-height: 10px;
+    padding: 0 @base-mp;
+  }
+
+  > textarea {
+    font-family: "Source Code Pro";
+    outline: 0;
+    outline: thin dotted  \9;
+    margin: 0;
+    display: block;
+    padding: 0;
+    width: 100%;
+    border-top: 0 !important;
+    border-radius: 0;
+    box-shadow: none;
+    background: rgba(red(@silver), green(@silver), blue(@silver), 0.1);
+
+    &:focus {
+      box-shadow: none;
+      background: @white;
+    }
+  }
+
+  &.active {
+    outline: 0;
+  }
+}

@@ -1,0 +1,28 @@
+.BoxShadow(@size: 3, @alpha: 0.1, @offset: 0) {
+  box-shadow: unit(@offset, px) unit(@size, px) 0 rgba(0, 0, 0, @alpha);
+}
+
+.ReverseBoxShadow(@size: -3, @alpha: 0.01, @offset: 0) {
+  box-shadow: unit(@offset, px) unit(@size, px) 0 rgba(0, 0, 0, @alpha);
+}
+
+.ClearFix() {
+  &:before, &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.Container() {
+  .ClearFix();
+  margin: 0 auto;
+  padding: 0 @base-mp;
+  width: 100%;
+  /* Chrome Bug. */
+  max-width: 1452px;
+  min-width: 1022px;
+}
