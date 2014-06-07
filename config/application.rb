@@ -1,31 +1,44 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
-
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
 module Blog
   class Application < Rails::Application
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.assets.paths << Rails.root.join("app", "assets", "images")
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.eot *.ttf *.woff *.svg)
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    require_relative "environments/global"
+  end
+end
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+module Rails
+  def self.config
+    application.config
+  end
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+  # Don't get mad old Rails, please.
+  if defined?(application.secrets)
+    def self.secrets
+      application.secrets
+    end
+  end
+
+  # ---------------------------------------------------------------------------
+  # Allows you to easily encrypt messages anywhere without much trouble using
+  # keys from secrets file, this is useful for storing data that shouldn't
+  # be tampered inside of forms.
+  # ---------------------------------------------------------------------------
+
+  if defined?(application.secrets)
+    def self.encryptor
+      @encryptor ||= begin
+        salt = secrets.salt
+        base = secrets.base
+        ActiveSupport::MessageEncryptor.new(
+          ActiveSupport::KeyGenerator.new(base).generate_key(salt))
+      end
+    end
   end
 end

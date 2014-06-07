@@ -1,26 +1,34 @@
-require 'spec_helper'
+require "rspec/helper"
 
 describe "User Pages" do
   subject { page }
 
   describe "signup page" do
     before { visit signup_path }
-
     it { should have_content('Sign up')}
   end
 
   describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    let(:attrs) do
+      {
+        :name => "Example User",
+        :email => "user@example.com",
+        :password_confirmation => "12345678",
+        :password => "12345678"
+      }
+    end
 
-    it { should have_content(user.name) }
-    #it { should have_title(user.name) }
+    before do
+      @user = User.create(attrs)
+    end
+
+    before { visit user_path(@user) }
+    it { should have_content(@user.name) }
   end
 
   describe "signup" do
-    before { visit signup_path }
-
     let(:submit) { "Create my account" }
+    before { visit signup_path }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -30,10 +38,10 @@ describe "User Pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name",         with: "Example User"
-        fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "foobarbaz"
-        fill_in "Confirmation", with: "foobarbaz"
+        fill_in "Name",         with: => "Example User"
+        fill_in "Password",     with: => "foobarbaz"
+        fill_in "Confirmation", with: => "foobarbaz"
+        fill_in "Email",        with: => "user@example.com"
       end
 
       it "should create a user" do
@@ -41,6 +49,4 @@ describe "User Pages" do
       end
     end
   end
-
 end
-

@@ -1,10 +1,20 @@
-require 'spec_helper'
+require "rspec/helper"
 
 describe User do
-  before { @user = User.new(name: "Example User", email: "user@example.com",
-                            password: "foobarbaz", password_confirmation: "foobarbaz") }
-
   subject { @user }
+
+  let(:attrs) do
+    {
+      :name => "Example User",
+      :email => "user@example.com",
+      :password_confirmation => "12345678",
+      :password => "12345678"
+    }
+  end
+
+  before do
+    @user = User.new(attrs)
+  end
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
@@ -12,14 +22,10 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
-
   it { should be_valid }
 
   describe "when password is not present" do
-    before do
-      @user = User.new(name: "Example User", email: "user@example.com",
-                       password: " ", password_confirmation: " ")
-    end
+    before { @user = User.new(attrs.except(:password, :password_confirmation)) }
     it { should_not be_valid }
   end
 
@@ -106,4 +112,3 @@ describe User do
   end
 
 end
-
