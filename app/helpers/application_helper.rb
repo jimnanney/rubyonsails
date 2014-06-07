@@ -5,25 +5,13 @@ module ApplicationHelper
     Content::Pipeline::Filters::Markdown
   ])
 
-  def login_logout_link
-    if ! @account.guest?
-      then content_tag(:li, link_to("Logout, #{@account.name}", :auth_logout))
-    else
-      content_tag(:li, link_to("Login with Github",
-        :auth_github, "data-for-modal" => "login-modal"))
-    end
-  end
-
-  def flash_messages(opts = {})
+  def login_logout_account_links
   out = "".html_safe
-    if flash.any?
-      out =
-        content_tag(:div, :class => "alerts text-center") do
-          flash.map { |k, v|
-            content_tag :p, v.html_safe, :class => k }.join("\n").html_safe
-        end
-
-      flash.clear
+    if @account.guest?
+      then out += content_tag(:li, link_to("Login with Github", :auth_github))
+    else
+      out += content_tag(:li, link_to("Edit Account", :account))
+      out += content_tag(:li, link_to("Logout, #{@account.name}", :auth_logout))
     end
   out
   end
@@ -40,13 +28,18 @@ module ApplicationHelper
     end
   end
 
-  def _step_helper(num, msg, where = nil)
-    msg = "Step #{num}: #{msg}"
+  def flash_messages(opts = {})
+  out = "".html_safe
+    if flash.any?
+      out =
+        content_tag(:div, :class => "alerts text-center") do
+          flash.map { |k, v|
+            content_tag :p, v.html_safe, :class => k }.join("\n").html_safe
+        end
 
-    if ! where
-      then return msg
-      else link_to msg, where
+      flash.clear
     end
+  out
   end
 
   def markdown(content)
