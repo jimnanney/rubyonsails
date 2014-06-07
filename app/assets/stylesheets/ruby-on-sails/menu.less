@@ -1,0 +1,31 @@
+.menu {
+  background: asset-url("sbg.png") top right no-repeat;
+
+  hr {
+    margin: (@base-mp / 2) 0 @base-mp 0;
+    border-color: rgba(red(@black), green(@black), blue(@black), 0.07);
+  }
+
+  > h3:first-child {
+    margin-top: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      a {
+        display: block;
+        padding: (@base-mp / 3) 0;
+      }
+
+      &:first-of-type {
+        a {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}

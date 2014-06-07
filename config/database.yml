@@ -1,17 +1,16 @@
-development:
+db_common: &db_common
   adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
   timeout: 5000
+  pool: 5
+
+development:
+  <<: *db_common
+  database: db/development.sqlite3
 
 test:
-  adapter: sqlite3
+  <<: *db_common
   database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
 
 production:
-  adapter: sqlite3
+  <<: *db_common
   database: db/production.sqlite3
-  pool: 5
-  timeout: 5000

@@ -1,0 +1,143 @@
+.navbar {
+  text-transform: uppercase;
+  background: @almost-black;
+  line-height: @font-size;
+  color: @white;
+  box-shadow:
+    inset 0px 11px 8px -10px rgba(0, 0, 0, 0.1),
+    inset 0px -11px 8px -10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+
+  &.fixed {
+    z-index: 9001;
+    position: fixed;
+    top: 0;
+  }
+
+  .navbar-header {
+    float: left;
+
+    .navbar-brand {
+      white-space: nowrap;
+    }
+  }
+
+  .extra {
+    p {
+      margin: @base-mp @base-mp 0 0;
+      a {
+        padding: 0;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding: @base-mp 0;
+    white-space: nowrap;
+    color: inherit;
+
+    &:hover, &:active, &:target {
+      color: @wisteria;
+    }
+  }
+
+  nav {
+    float: right;
+
+    > ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        &:not(:last-of-type) {
+          padding-right: 24px;
+        }
+      }
+
+      li.dropdown {
+        position: relative;
+
+        &:hover {
+          > ul {
+            display: block;
+          }
+        }
+
+        ul {
+          top: 100%;
+          position: absolute;
+          border: 1px solid darken(@belize-hole, 4);
+          background: @belize-hole;
+          min-width: 256px;
+          display: none;
+          padding: 0;
+
+          li {
+            display: block;
+            padding: 0;
+
+            border-bottom: 1px solid rgba(
+              red(@black),
+              green(@black),
+              blue(@black),
+              0.04
+            );
+
+            background-color: rgba(
+              red(@black),
+              green(@black),
+              blue(@black),
+              0.03
+            );
+
+            a {
+              padding: (@base-mp / 2) @base-mp;
+
+              &:hover {
+                color: lighten(@peter-river, 9);
+                border-bottom-color: @peter-river;
+              }
+            }
+          }
+
+          > li:last-of-type {
+            border-bottom: none;
+          }
+        }
+
+        li.dropdown {
+          ul {
+            top: 1%;
+            right: 0;
+            left: 50%;
+          }
+        }
+
+        > a {
+          background-color: rgba(0, 0, 0, 0.02);
+        }
+      }
+    }
+  }
+}
+
+.navbar.fixed + :nth-child(2) {
+  margin-top: @base-mp * 2 + @font-size;
+}
+
+@media (max-width: 1400px) {
+  .navbar {
+    .navbar-header {
+      .navbar-brand {
+        i {
+          display: none;
+        }
+      }
+    }
+  }
+}
