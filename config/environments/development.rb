@@ -6,7 +6,9 @@ Rails.application.configure do
   config.force_ssl = false
   config.eager_load = false
   config.assets.debug = true
+  config.sass.cache = false
   config.serve_static_assets = false
+  config.assets.cache_store = :null_store
   config.active_support.deprecation = :log
   config.action_mailer.perform_deliveries = true
   config.active_record.migration_error = :page_load
