@@ -6,6 +6,7 @@
 main {
   background: asset-url("noise.png") #fcfcfc;
   padding-top: $base-mp;
+  color: $ros-blue;
 
   .container > .row {
     margin: ($base-mp * 2) 0;
@@ -14,10 +15,6 @@ main {
   .container > .row:first-child {
     margin-top: 0px;
     padding-top: 0px;
-  }
-
-  h1 {
-    font-style: italic;
   }
 }
 
