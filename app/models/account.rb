@@ -38,7 +38,7 @@ class Account < ActiveRecord::Base
 
   private
   def disable_privileges
-    [:admin, :reviewer, :submitter].each do |t|
+    [:admin, :reviewer].each do |t|
       write_attribute(t, false)
     end
   end
