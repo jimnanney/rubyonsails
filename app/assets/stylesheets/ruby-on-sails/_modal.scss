@@ -6,7 +6,7 @@
   opacity: 0;
   z-index: -9001;
   position: fixed;
-  background: rgba(red(@white), green(@white), blue(@white), 0.9);
+  background: rgba(red($white), green($white), blue($white), 0.9);
   pointer-events: none;
 
   h1 {
@@ -14,22 +14,22 @@
   }
 
   > div {
-    border: 1px solid @clouds;
+    border: 1px solid $clouds;
     width: 506px;
     margin: 10% auto;
     position: relative;
-    padding: @base-mp;
+    padding: $base-mp;
     border-radius: 6px;
     background: #fff;
   }
 
   .close {
     font-size: 2em;
-    top: @base-mp / 2;
+    top: $base-mp / 2;
     text-decoration: none;
-    color: @belize-hole;
+    color: $belize-hole;
     position: absolute;
-    right: @base-mp;
+    right: $base-mp;
     float: right;
   }
 }

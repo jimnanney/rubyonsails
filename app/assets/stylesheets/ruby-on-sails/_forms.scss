@@ -1,17 +1,17 @@
 form {
-  .ClearFix();
+  @include clearfix();
 
   .error {
     display: none;
   }
 
   .hint {
-    color: @silver;
+    color: $silver;
     font-style: italic;
   }
 
   .row {
-    margin-bottom: @base-mp;
+    margin-bottom: $base-mp;
     &.boolean {
       label {
         width: 100% !important;
@@ -20,14 +20,14 @@ form {
   }
 
   .form-label {
-    background: asset-url("noise.png") @clouds;
+    background: asset-url("noise.png") $clouds;
     text-transform: uppercase;
 
     &.readonly {
       background-color: rgba(
-        red(desaturate(@sun-flower, 48%)),
-        green(desaturate(@sun-flower, 48%)),
-        blue(desaturate(@sun-flower, 48%)),
+        red(desaturate($sun-flower, 48%)),
+        green(desaturate($sun-flower, 48%)),
+        blue(desaturate($sun-flower, 48%)),
         0.3
       );
     }
@@ -36,11 +36,11 @@ form {
   .form-input, .form-label {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     display: inline-block;
-    padding: @base-mp / 3;
-    font-size: @font-size;
+    padding: $base-mp / 3;
+    font-size: $font-size;
     line-height: 20px;
-    border: 1px solid @silver;
-    color: @asbestos;
+    border: 1px solid $silver;
+    color: $asbestos;
 
     &.textarea {
       resize: vertical;
@@ -50,7 +50,7 @@ form {
 
     &:focus {
       outline: 0;
-      border: 1px solid @silver;
+      border: 1px solid $silver;
     }
   }
 
@@ -64,14 +64,14 @@ form {
   }
 
   select {
-    margin: (@base-mp / 3.7) 0 !important;
+    margin: ($base-mp / 3.7) 0 !important;
   }
 
   input[type="checkbox"] {
     float: right !important;
     width: auto;
     box-shadow: none;
-    margin: (@base-mp / 5) 0 (@base-mp / 5);
+    margin: ($base-mp / 5) 0 ($base-mp / 5);
   }
 
   input[type="file"] {
@@ -82,19 +82,19 @@ form {
 
   .field_with_errors, .field-with-errors {
     .form-input, .form-label {
-      border-color: @pomegranate;
+      border-color: $pomegranate;
     }
 
     .form-label {
-      color: @white;
-      background-color: @alizarin;
+      color: $white;
+      background-color: $alizarin;
     }
   }
 
   abbr[title="required"] {
     border-bottom: 0;
     outline: 0;
-    color: @pomegranate;
+    color: $pomegranate;
   }
 }
 
@@ -103,7 +103,7 @@ form {
 
   > .md-header, .md-footer {
     display: block;
-    background: @white;
+    background: $white;
 
     .btn {
       border-bottom: 0 !important;
@@ -112,8 +112,8 @@ form {
   }
 
   > .md-header {
-    border: 1px solid @belize-hole;
-    .ClearFix();
+    border: 1px solid $belize-hole;
+    @include clearfix();
     margin: 0;
 
     button {
@@ -136,11 +136,11 @@ form {
   }
 
   > .md-preview {
-    background: @white;
-    border-top: 1px dashed @silver;
-    border-bottom: 1px dashed @silver;
+    background: $white;
+    border-top: 1px dashed $silver;
+    border-bottom: 1px dashed $silver;
     min-height: 10px;
-    padding: 0 @base-mp;
+    padding: 0 $base-mp;
   }
 
   > textarea {
@@ -152,11 +152,11 @@ form {
     border-top: 0 !important;
     border-radius: 0;
     box-shadow: none;
-    background: rgba(red(@silver), green(@silver), blue(@silver), 0.1);
+    background: rgba(red($silver), green($silver), blue($silver), 0.1);
 
     &:focus {
       box-shadow: none;
-      background: @white;
+      background: $white;
     }
   }
 

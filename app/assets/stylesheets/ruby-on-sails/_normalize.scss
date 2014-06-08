@@ -1,4 +1,7 @@
-html,body { min-height: 100%; }
+html,body {
+  height: 100%;
+  min-height: 100%;
+}
 
 * {
   -moz-box-sizing: border-box;
@@ -30,17 +33,17 @@ html {
 }
 
 body {
-  background: @background;
+  background: $background;
   padding: 0;
   margin: 0;
-  font-size: @font-size;
-  color: @body-font-color;
-  line-height: @line-height;
+  font-size: $font-size;
+  color: $body-font-color;
+  line-height: $line-height;
 }
 
 a {
   text-decoration: none;
-  color: @green-sea;
+  color: $green-sea;
   background: transparent;
 }
 
@@ -52,7 +55,7 @@ h1 {
   margin: 0.67em 0 3em;
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: @serif-font; }
+h1, h2, h3, h4, h5, h6 { font-family: $serif-font; }
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 dfn { font-style: italic; }
@@ -60,7 +63,7 @@ dfn { font-style: italic; }
 hr {
   box-sizing: content-box;
   -moz-box-sizing: content-box;
-  margin: @base-mp 0;
+  margin: $base-mp 0;
   height: 0;
 }
 

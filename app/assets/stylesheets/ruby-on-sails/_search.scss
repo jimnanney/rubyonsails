@@ -6,17 +6,17 @@
 
     form {
       float: left;
-      padding: @base-mp / 2;
+      padding: $base-mp / 2;
 
       input {
-        margin: (@base-mp / 2) 0 0;
-        border: 1px solid darken(@belize-hole, 8);
+        margin: ($base-mp / 2) 0 0;
+        border: 1px solid darken($belize-hole, 8);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
-        border-radius: @base-mp;
+        border-radius: $base-mp;
         width: 100%;
         float: left;
-        padding-left: @base-mp;
-        padding-right: @base-mp;
+        padding-left: $base-mp;
+        padding-right: $base-mp;
       }
     }
   }

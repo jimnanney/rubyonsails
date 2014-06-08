@@ -1,0 +1,19 @@
+<header class="navbar <%= defined?(no_fixed_navbar) ? "" : "fixed" %>" role="banner">
+  <div class="container">
+    <div class="row col-10 center">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <span aria-hidden="false">Ruby On Sails</span>
+        </a>
+      </div>
+
+      <div class="pull-right col-10">
+        <nav role="navigation">
+          <ul>
+            <%= login_logout_account_links %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

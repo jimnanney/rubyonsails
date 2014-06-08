@@ -1,0 +1,20 @@
+.alerts {
+  @include clearfix();
+  margin: -$base-mp 0 0;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  .warning, .error, .success {
+    text-align: center;
+    padding: $base-mp;
+    line-height: 1em;
+    color: #fff;
+    margin: 0;
+  }
+
+  .error { background-color: $carrot; }
+  .warning { background-color: $sun-flower; }
+  .success { background-color: $green-sea; }
+}
