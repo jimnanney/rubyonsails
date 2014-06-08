@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render :template => "layouts/partials/head" %>
+  </head>
+  <body id="ruby-on-sails" class="preload <%= controller_name %> <%= action_name %>">
+    <div class="masthead">
+      <a href="/" alt="#RubyOnSails">
+        <span>
+          Ruby On Sails
+        </span>
+      </a>
+    </div>
+
+    <%= render :template => "layouts/partials/header", :locals => { :no_fixed_navbar => true } %>
+
+    <main id="main">
+      <div class="container">
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render :template => "layouts/partials/footer" %>
+    <% if content_for?(:extra_javascript) %>
+      <% yield :extra_javascript %>
+    <% end %>
+  </body>
+</html>

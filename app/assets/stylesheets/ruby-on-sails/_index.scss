@@ -1,0 +1,32 @@
+.static.index {
+  .masthead {
+    height: 100%;
+    background-size: cover;
+    background-image: asset-url("header.jpg");
+
+    a {
+      float: right;
+      width: 300px;
+      position: relative;
+      display: inline-block;
+      border-radius: 300px;
+      background-size: cover;
+      background-color: $ros-blue;
+      background-image: asset-url("logo.png");
+      top: $base-mp * 3;
+      right: $base-mp;
+      bottom: 0;
+      height: 300px;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .alerts {
+    margin: 0;
+    position: fixed;
+    top: 0;
+  }
+}
