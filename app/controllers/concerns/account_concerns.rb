@@ -54,14 +54,6 @@ module AccountConcerns
     end
   end
 
-  def _ensure_verified_email!
-    unless @account.email_verified?
-      redirect_to :account, {
-        :error => "You need to verify your E-Mail before you can do."
-      }
-    end
-  end
-
   private
   def _ensure_not_logged_in!
     unless @account.guest?
