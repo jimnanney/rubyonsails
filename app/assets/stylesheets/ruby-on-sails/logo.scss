@@ -1,0 +1,9 @@
+.logo {
+  width: 200px;
+  display: inline-block;
+  border-radius: 300px;
+  background-size: cover;
+  background-color: $ros-blue;
+  background-image: asset-url("logo.png");
+  height: 200px;
+}

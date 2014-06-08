@@ -1,11 +1,14 @@
 class Account < ActiveRecord::Base
+  has_many :comments
+  has_many :submissions
+  has_many :votes
+
   validates_presence_of :email
   validates_presence_of :name
   validates_presence_of :oauth_token
   validates_uniqueness_of :oauth_uid
   validates_uniqueness_of :email
 
-  after_create :_send_confirmation_email!
   attr_accessor :guest
 
   GuestDefaults = {
@@ -26,10 +29,10 @@ class Account < ActiveRecord::Base
 
   def account_type
     case true
-      when admin?  then :Admin
-      when reviewer? then :Reviewer
+      when admin?  then :admin
+      when reviewer? then :reviewer
     else
-      :Submitter
+      :submitter
     end
   end
 
@@ -37,13 +40,6 @@ class Account < ActiveRecord::Base
   def disable_privileges
     [:admin, :reviewer, :submitter].each do |t|
       write_attribute(t, false)
-    end
-  end
-
-  private
-  def _send_confirmation_email!
-    unless self.email_verified? || ! defined?(AccountMailer)
-      AccountMailer.verify(self).deliver
     end
   end
 

@@ -1,18 +1,17 @@
-<%= simple_form_for @account, :url => :account do |f| %>
-  <%= f.input :name %>
+<%= simple_form_for Submission.new, :url => :submission do |f| %>
+  <%= f.input :title %>
 
   <div class="row">
     <%= f.label :bio, nil, {
       :class => "form-label col-12 hidden"
     } %>
 
-    <%= f.text_area :bio, {
+    <%= f.text_area :text, {
       "data-provide" => "markdown",
       "class" => "form-input col-12 textarea autosize",
-      "placeholder" => "Tell us more about you, or else."
+      "placeholder" => "Do you think you have what it takes?"
     } %>
   </div>
 
-  <%= f.input :email %>
   <%= f.button :submit %>
 <% end %>

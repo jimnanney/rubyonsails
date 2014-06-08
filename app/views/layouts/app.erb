@@ -8,36 +8,31 @@
     <%= csrf_meta_tag %>
   </head>
   <body id="ruby-on-sails" class="preload <%= controller_name %> <%= action_name %>">
-    <header class="navbar fixed" role="banner">
+    <%= render :template => "layouts/partials/header" %>
+    <main>
       <div class="container">
-        <div class="row col-10 center">
-          <div class="navbar-header">
-            <a href="/" class="navbar-brand">
-              <span aria-hidden="false">Ruby On Sails</span>
-            </a>
-          </div>
+        <%= flash_messages %>
+        <div class="row">
+          <div class="col-10 center form">
+            <div class="row">
+              <h1 class="form-heading"><%= @title %></h1>
+            </div>
 
-          <div class="pull-right col-10">
-            <nav role="navigation">
-              <ul>
-                <%= login_logout_account_links %>
-              </ul>
-            </nav>
+            <div class="row">
+              <div class="col-3 menu">
+                <div class="logo">
+                  <!-- Empty -->
+                </div>
+              </div>
+
+              <div class="col-7 pull-right">
+                <%= yield %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
-
-    <% if content_for?(:body) %>
-      <%= yield :body %>
-    <% else %>
-      <main>
-        <div class="container">
-          <%= flash_messages %>
-          <%= yield %>
-        </div>
-      </main>
-    <% end %>
+    </main>
 
     <footer class="footbar<%= " #{footer_class}" if defined?(footer_class) %>">
       <div class="container">

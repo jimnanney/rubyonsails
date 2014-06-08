@@ -50,6 +50,7 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     gemoji (1.5.0)
+    github-markdown (0.6.5)
     hashie (2.1.1)
     hike (1.2.3)
     i18n (0.6.9)
@@ -185,6 +186,7 @@ DEPENDENCIES
   content-pipeline
   factory_girl_rails (= 4.2.1)
   gemoji
+  github-markdown
   jquery-rails
   omniauth-github
   pg (= 0.15.1)

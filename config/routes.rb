@@ -5,14 +5,23 @@ Rails.application.routes.draw do
   # Omniauth stuff.
   # ---------------------------------------------------------------------------
 
-  get "/auth/github", :to => "session#github", :as => :auth_github
-  get "/auth/github/callback", :to => "session#create", :as => :auth_github_callback
-  get "/auth/logout", :to => "session#delete", :as => :auth_logout
+  match "/auth/github", :to => "session#github", :via => :get, :as => :auth_github
+  match "/auth/github/callback", :to => "session#create", :via => :get, :as => :auth_github_callback
+  match "/auth/logout", :to => "session#delete", :via => [:get, :delete], :as => :auth_logout
 
   # ---------------------------------------------------------------------------
   # Account stuff.
   # ---------------------------------------------------------------------------
 
-  match "/account", :to => "account#update", :via => [:patch, :post], :as => :account_update
+  match "/account", :to => "account#update", :via => [:patch, :post]
   match "/account", :via => :get, :to => "account#edit"
+
+  # ---------------------------------------------------------------------------
+  # Submission stuff.
+  # ---------------------------------------------------------------------------
+
+  match "/submission", :via => [:get], :to => "submission#show"
+  match "/submission", :via => [:patch, :post], :to => "submission#create"
+  match "/submission/edit", :via => :get, :to => "submission#edit"
+  match "/submission/new", :via => :get, :to => "submission#new"
 end

@@ -1,0 +1,9 @@
+<div class="row">
+  <%= markdown(@submission.text).html_safe %>
+</div>
+
+<div class="row">
+  <%= link_to "Edit this Submission", :submission_edit, {
+    :class => "btn btn-warning pull-right margin-top"
+  } %>
+</div>

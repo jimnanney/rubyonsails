@@ -5,6 +5,17 @@ module ApplicationHelper
     Content::Pipeline::Filters::Markdown
   ])
 
+  def submission_link
+  out = "".html_safe
+    unless [:reviewer, :admin].include?(@account.account_type)
+      if @account.submissions.any?
+        then out += content_tag(:li, link_to("Review Submission",     :submission))
+        else out += content_tag(:li, link_to("Create Submission", :submission_new))
+      end
+    end
+  out
+  end
+
   def login_logout_account_links
   out = "".html_safe
     if @account.guest?
