@@ -37,7 +37,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.0)
-    commonjs (0.2.7)
     content-pipeline (1.1.1)
       nokogiri (~> 1.6)
     diff-lcs (1.2.5)
@@ -59,11 +58,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
-    less (2.5.1)
-      commonjs (~> 0.2.7)
-    less-rails (2.5.0)
-      actionpack (>= 3.1)
-      less (~> 2.5.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -192,7 +186,6 @@ DEPENDENCIES
   factory_girl_rails (= 4.2.1)
   gemoji
   jquery-rails
-  less-rails
   omniauth-github
   pg (= 0.15.1)
   pry-rails
