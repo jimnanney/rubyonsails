@@ -1,8 +1,8 @@
 .navbar {
+  background: $ros-blue;
   text-transform: uppercase;
-  background: @almost-black;
-  line-height: @font-size;
-  color: @white;
+  line-height: $font-size;
+  color: $white;
   box-shadow:
     inset 0px 11px 8px -10px rgba(0, 0, 0, 0.1),
     inset 0px -11px 8px -10px rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@
 
   .extra {
     p {
-      margin: @base-mp @base-mp 0 0;
+      margin: $base-mp $base-mp 0 0;
       a {
         padding: 0;
       }
@@ -36,12 +36,12 @@
     display: block;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    padding: @base-mp 0;
+    padding: $base-mp 0;
     white-space: nowrap;
     color: inherit;
 
     &:hover, &:active, &:target {
-      color: @wisteria;
+      color: $wisteria;
     }
   }
 
@@ -71,8 +71,8 @@
         ul {
           top: 100%;
           position: absolute;
-          border: 1px solid darken(@belize-hole, 4);
-          background: @belize-hole;
+          border: 1px solid darken($belize-hole, 4);
+          background: $belize-hole;
           min-width: 256px;
           display: none;
           padding: 0;
@@ -82,25 +82,25 @@
             padding: 0;
 
             border-bottom: 1px solid rgba(
-              red(@black),
-              green(@black),
-              blue(@black),
+              red($black),
+              green($black),
+              blue($black),
               0.04
             );
 
             background-color: rgba(
-              red(@black),
-              green(@black),
-              blue(@black),
+              red($black),
+              green($black),
+              blue($black),
               0.03
             );
 
             a {
-              padding: (@base-mp / 2) @base-mp;
+              padding: ($base-mp / 2) $base-mp;
 
               &:hover {
-                color: lighten(@peter-river, 9);
-                border-bottom-color: @peter-river;
+                color: lighten($peter-river, 9);
+                border-bottom-color: $peter-river;
               }
             }
           }
@@ -127,7 +127,7 @@
 }
 
 .navbar.fixed + :nth-child(2) {
-  margin-top: @base-mp * 2 + @font-size;
+  margin-top: $base-mp * 2 + $font-size;
 }
 
 @media (max-width: 1400px) {

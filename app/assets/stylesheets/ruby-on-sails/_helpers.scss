@@ -1,10 +1,10 @@
 .pull-right, .float-right { float: right !important; }
 .pull-left, .float-left { float: left !important; }
-.clearfix, .clear-fix { .ClearFix(); }
+.clearfix, .clear-fix { @include clearfix(); }
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-.fancy-font { font-family: @serif-font; }
+.fancy-font { font-family: $serif-font; }
 .bold-italic { font-style: italic; font-weight: bold; }
 
 .mock-header { font-size: 24px; line-height: 36px; }
@@ -20,32 +20,32 @@
 .no-padding-bottom { padding-bottom: 0; }
 .no-border-right { border-right: 0 !important; }
 
-.padding-left { padding-left: @base-mp; }
-.padding-top { padding-top: @base-mp; }
-.margin-left { margin-left: @base-mp; }
-.margin-top { margin-top: @base-mp; }
-.margin { margin: @base-mp; }
-.padding { padding: @base-mp; }
-.margin-right { margin-right: @base-mp; }
-.margin-bottom { margin-bottom: @base-mp; }
-.padding-right { padding-right: @base-mp; }
-.padding-bottom { padding-bottom: @base-mp; }
+.padding-left { padding-left: $base-mp; }
+.padding-top { padding-top: $base-mp; }
+.margin-left { margin-left: $base-mp; }
+.margin-top { margin-top: $base-mp; }
+.margin { margin: $base-mp; }
+.padding { padding: $base-mp; }
+.margin-right { margin-right: $base-mp; }
+.margin-bottom { margin-bottom: $base-mp; }
+.padding-right { padding-right: $base-mp; }
+.padding-bottom { padding-bottom: $base-mp; }
 .border-radius { border-radius: 4px; }
-.border { border: 2px solid @clouds; }
+.border { border: 2px solid $clouds; }
 .no-background { background: transparent !important; }
-.offset-top { margin-top: @base-mp * 2 + @font-size; }
-.green-sea { color: @green-sea; }
-.sun-flower { color: @sun-flower; }
+.offset-top { margin-top: $base-mp * 2 + $font-size; }
+.green-sea { color: $green-sea; }
+.sun-flower { color: $sun-flower; }
 .white { color: #fff; }
 
 .force-full-screen {
-  margin-left: -@base-mp !important;
-  margin-right: -@base-mp !important;
+  margin-left: -$base-mp !important;
+  margin-right: -$base-mp !important;
 }
 
 p.center {
   text-align: center;
-  .ClearFix();
+  @include clearfix();
   margin-left: auto;
   margin-right: auto;
 }
@@ -58,15 +58,15 @@ p.center {
 }
 
 .mini-center {
-  .ClearFix();
+  @include clearfix();
   text-align: center;
-  margin: 0 auto @base-mp;
+  margin: 0 auto $base-mp;
   width: 58%;
 }
 
 .italic { font-style: italic; }
 .hidden { display: none !important; }
-.verticle-middle { line-height: @line-height + @base-mp; }
+.verticle-middle { line-height: $line-height + $base-mp; }
 .preload * {
   -moz-transition: none !important;
   -webkit-transition: none !important;

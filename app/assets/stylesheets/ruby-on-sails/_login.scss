@@ -1,11 +1,11 @@
 .login {
   background-position: center center;
-  background-color: @belize-hole;
+  background-color: $belize-hole;
   background-size: 100% auto !important;
-  color: @white;
+  color: $white;
 
   .btn { border: none; margin-right: 0; }
   input, textarea, label {
-    border-color: @white; background-color: @white;
+    border-color: $white; background-color: $white;
   }
 }

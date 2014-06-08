@@ -1,0 +1,24 @@
+@mixin box-shadow($size: 3, $alpha: 0.1, $offset: 0) {
+  box-shadow: unit($offset, px) unit($size, px) 0 rgba(0, 0, 0, $alpha);
+}
+
+@mixin clearfix() {
+  &:before, &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin container() {
+  margin: 0 auto;
+  @include clearfix();
+  padding: 0 $base-mp;
+  width: 100%;
+  /* Chrome Bug. */
+  max-width: 1452px;
+  min-width: 1022px;
+}

@@ -1,14 +1,14 @@
 .container {
-  .Container();
+  @include container();
   background-color: transparent;
 }
 
 main {
   background: asset-url("noise.png") #fcfcfc;
-  padding-top: @base-mp;
+  padding-top: $base-mp;
 
   .container > .row {
-    margin: (@base-mp * 2) 0;
+    margin: ($base-mp * 2) 0;
   }
 
   .container > .row:first-child {
@@ -22,7 +22,7 @@ main {
 }
 
 .row {
-  .ClearFix();
+  @include clearfix();
 }
 
 .col-1, .col-2,  .col-3,  .col-4, .col-5, .col-6, .col-7, .col-8,
