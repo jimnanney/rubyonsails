@@ -5,9 +5,29 @@ module ApplicationHelper
     Content::Pipeline::Filters::Markdown
   ])
 
+  def main_links
+    out = "".html_safe
+    out += content_tag :ul do
+      case @account.account_type
+        when :submitter then submission_link
+        when :admin     then admin_links
+      end
+    end
+  end
+
+  def admin_links
+    out = "".html_safe
+    if @account.account_type == :admin
+      out += content_tag :li do
+        link_to "Manage Users", :admin_users
+      end
+    end
+  out
+  end
+
   def submission_link
     out = "".html_safe
-    unless [:reviewer, :admin].include?(@account.account_type)
+    if @account.account_type == :submitter
       if @account.submissions.any?
         out += content_tag :li do
           link_to "Review Submission", :submission
