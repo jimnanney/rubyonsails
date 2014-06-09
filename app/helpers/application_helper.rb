@@ -7,17 +7,13 @@ module ApplicationHelper
 
   def submission_link
     out = "".html_safe
-    opt = {
-      :class => "pull-left"
-    }
-
     unless [:reviewer, :admin].include?(@account.account_type)
       if @account.submissions.any?
-        out += content_tag :li, opt do
+        out += content_tag :li do
           link_to "Review Submission", :submission
         end
       else
-        out += content_tag :li, opt do
+        out += content_tag :li do
           link_to "Create Submission", :submission_new
         end
       end
@@ -29,7 +25,7 @@ module ApplicationHelper
     out  = "".html_safe
     out += content_tag :ul do
       if @account.guest?
-        out += content_tag :li, opt do
+        out += content_tag :li do
           link_to "Login with Github", :auth_github
         end
       else
