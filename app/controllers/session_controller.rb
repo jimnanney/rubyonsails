@@ -1,8 +1,11 @@
 class SessionController < ApplicationController
-  def create
-    account = Account.github(env["omniauth.auth"])
 
-    if account
+  # ---------------------------------------------------------------------------
+  # GET:/auth/github/callback
+  # ---------------------------------------------------------------------------
+
+  def create
+    if account = Account.github(env["omniauth.auth"])
       then session[:id] = account.id
       redirect_to :root, {
         :success => "Hello, nice to see you!"
@@ -13,6 +16,10 @@ class SessionController < ApplicationController
       }
     end
   end
+
+  # ---------------------------------------------------------------------------
+  # GET,DELETE:/auth/logout
+  # ---------------------------------------------------------------------------
 
   def delete
     reset_session

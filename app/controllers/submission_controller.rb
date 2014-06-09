@@ -1,6 +1,5 @@
 class SubmissionController < ApplicationController
-  before_filter :_submitter?
-
+  before_filter :submitter?
   allow_param({
     :submission => [
       :title,

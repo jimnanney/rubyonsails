@@ -18,13 +18,6 @@ module ParamConcerns
     :utf8
   ]
 
-  private
-  def _verify_valid_slug!
-    if ! safe_params[:slug].try(:valid_uuid?)
-      raise NotFoundError
-    end
-  end
-
   # -------------------------------------------------------------------
   # You'll need to set this up in your controller in order for it to
   # work properly (also see `self.allow_attr`):

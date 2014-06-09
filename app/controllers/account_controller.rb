@@ -1,4 +1,6 @@
 class AccountController < ApplicationController
+  page_title :edit, "Your Account Settings"
+  before_action :ensure_logged_in!
   allow_param({
     :account => [
       :name,
@@ -9,10 +11,6 @@ class AccountController < ApplicationController
     :only => :update
   })
 
-  before_action :_ensure_logged_in!
-  skip_before_action :_set_page_title!, :only => :edit
-  before_action :_set_page_title!, :only => :edit
-  page_title :edit, "Your Account Settings"
 
   # ---------------------------------------------------------------------------
   # PATCH, POST: /account
