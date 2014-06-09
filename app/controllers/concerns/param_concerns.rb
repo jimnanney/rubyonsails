@@ -14,8 +14,11 @@ module ParamConcerns
   IGNORED_PARAMS = [
     :_method,
     :authenticity_token,
-    :commit,
     :utf8
+  ]
+
+  ALLOWED_PARAMS = [
+    :commit
   ]
 
   # -------------------------------------------------------------------
@@ -30,15 +33,21 @@ module ParamConcerns
 
   protected
   def safe_params
-    allowed = self.class.ignored_params.
-      values_at(action_name, controller_name).delete_if(&:nil?)
+    @_attrs ||= params.except(*ignored_params).permit(allowed_params)
+  end
 
-    ignored = self.class.ignored_params. \
-      values_at(action_name, controller_name). \
+  protected
+  def allowed_params
+    self.class.allowed_params.values_at( \
+      action_name, controller_name). \
+        delete_if(&:nil?).push(*ALLOWED_PARAMS)
+  end
+
+  protected
+  def ignored_params
+    self.class.ignored_params.values_at( \
+      action_name, controller_name). \
         delete_if(&:nil?).push(*IGNORED_PARAMS)
-
-    @_attrs ||= params.except(*ignored). \
-      permit(*self.class.allowed_params[action_name])
   end
 
   module ClassMethods
@@ -54,9 +63,8 @@ module ParamConcerns
     end
 
     def allow_param(*params)
-      opts = params.extract_options!
-      whre = opts[:only] || \
-        controller_name
+      opts = params.extract_options!  || {}
+      whre = opts[:only] || controller_name
 
       [whre].flatten.each do |k|
         (allowed_params[k.to_s] ||= []).push(*params)
@@ -64,10 +72,8 @@ module ParamConcerns
     end
 
     def ignore_param(*params)
-      opts = params.extract_options!
-      whre = opts[:only] || \
-        controller_name
-
+      opts = params.extract_options!  || {}
+      whre = opts[:only] || controller_name
       (ignored_params[whre] ||= []).push(*params)
     end
   end
