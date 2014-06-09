@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
     :deleting_self?, {
       :only => :delete
   }
-  
+
   allow_param :id, {
     :only => :delete
   }
