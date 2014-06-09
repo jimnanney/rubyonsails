@@ -1,7 +1,10 @@
 class Admin::UsersController < ApplicationController
-  before_filter :id_present?, :only => :delete
-  before_filter :deleting_self?, :only => :delete
-  before_filter :_admin?
+  before_filter :admin?
+  before_filter :id_present?,
+    :deleting_self?, {
+      :only => :delete
+  }
+  
   allow_param :id, {
     :only => :delete
   }
