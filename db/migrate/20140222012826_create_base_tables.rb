@@ -9,7 +9,6 @@ class CreateBaseTables < ActiveRecord::Migration
       t.timestamps
 
       t.boolean :reviewer, :default => false
-      t.boolean :submitter, :default => false
       t.boolean :admin, :default => false
 
       t.index :oauth_uid, :unique => true

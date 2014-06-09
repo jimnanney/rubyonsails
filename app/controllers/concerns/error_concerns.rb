@@ -9,14 +9,6 @@ module ErrorConcerns
     rescue_from BadActivityError, :with => :bad_activity_error
   end
 
-  def redirect_with_unauthorized(msg = nil)
-    redirect_to :back, {
-      :error => "You are not authorized to #{msg || "do that"}."
-    }
-
-    return false
-  end
-
   def server_error
     render "errors/500", :status => 500
     return false

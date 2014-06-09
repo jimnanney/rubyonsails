@@ -2,7 +2,7 @@ module TitleConcerns
   extend ActiveSupport::Concern
 
   included do |c|
-    before_action :_set_page_title!
+    before_action :set_page_title!
   end
 
   # -------------------------------------------------------------------
@@ -15,7 +15,7 @@ module TitleConcerns
   # -------------------------------------------------------------------
 
   private
-  def _set_page_title!
+  def set_page_title!
     self.class.page_titles ||= {}
     @title = self.class.page_titles[action_name] || ""
     @title = instance_eval(&@title.to_proc) if @title.is_a?(Proc)

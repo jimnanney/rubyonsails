@@ -5,7 +5,7 @@
 
 main {
   background: asset-url("noise.png") #fcfcfc;
-  padding-top: $base-mp;
+  padding-top: $base-mp * 2;
   color: $ros-blue;
 
   .container > .row {

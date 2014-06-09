@@ -30,7 +30,7 @@ SimpleForm.setup do |config|
   config.label_class = "form-label col-5"
   config.input_class = "form-input col-7"
   config.error_notification_class = "error_notification"
-  config.button_class = "btn btn-success"
+  config.button_class = "btn"
   config.error_notification_tag = :div
   config.browser_validations = true
 end

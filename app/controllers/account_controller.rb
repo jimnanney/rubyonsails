@@ -1,5 +1,7 @@
 class AccountController < ApplicationController
-  allow_param :current_password, {
+  page_title :edit, "Your Account Settings"
+  before_action :ensure_logged_in!
+  allow_param({
     :account => [
       :name,
       :email,
@@ -7,18 +9,12 @@ class AccountController < ApplicationController
     ],
   }, {
     :only => :update
-  }
+  })
 
-  # -------------------------------------------------------------------
 
-  before_action :_ensure_logged_in!
-  skip_before_action :_set_page_title!, :only => :edit
-  before_action :_set_page_title!, :only => :edit
-  page_title :edit, "Your Account Settings"
-
-  # -------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
   # PATCH, POST: /account
-  # -------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
 
   def update
     if @account.update(safe_params[:account])

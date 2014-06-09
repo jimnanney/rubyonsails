@@ -5,24 +5,64 @@ module ApplicationHelper
     Content::Pipeline::Filters::Markdown
   ])
 
+  def main_links
+    out = "".html_safe
+    out += content_tag :ul do
+      case @account.account_type
+        when :reviewer  then review_links
+        when :submitter then submission_link
+        when :admin     then admin_links
+      end
+    end
+  end
+
+  def admin_links
+    out = "".html_safe
+    if @account.admin?
+      out += content_tag :li do
+        link_to "Manage Users", :admin_users
+      end
+    end
+  out
+  end
+
+  def review_links
+    out = "".html_safe
+    if @account.reviewer?
+      out += content_tag :li do
+        link_to "Review Submissions", :review
+      end
+    end
+  end
+
   def submission_link
-  out = "".html_safe
-    unless [:reviewer, :admin].include?(@account.account_type)
+    out = "".html_safe
+    if @account.submitter?
       if @account.submissions.any?
-        then out += content_tag(:li, link_to("Review Submission",     :submission))
-        else out += content_tag(:li, link_to("Create Submission", :submission_new))
+        out += content_tag :li do
+          link_to "Review Submission", :submission
+        end
+      else
+        out += content_tag :li do
+          link_to "Create Submission", :submission_new
+        end
       end
     end
   out
   end
 
   def login_logout_account_links
-  out = "".html_safe
-    if @account.guest?
-      then out += content_tag(:li, link_to("Login with Github", :auth_github))
-    else
-      out += content_tag(:li, link_to("Edit Account", :account))
-      out += content_tag(:li, link_to("Logout, #{@account.name}", :auth_logout))
+    out  = "".html_safe
+    out += content_tag :ul do
+      if @account.guest?
+        out += content_tag :li do
+          link_to "Login with Github", :auth_github
+        end
+      else
+        account = @account.name
+        out += content_tag(:li, link_to("Edit Account", :account))
+        out += content_tag(:li, link_to("Logout, #{account}", :auth_logout))
+      end
     end
   out
   end

@@ -1,7 +1,7 @@
 class Account < ActiveRecord::Base
-  has_many :comments
-  has_many :submissions
-  has_many :votes
+  has_many :comments, :dependent => :destroy
+  has_many :submissions, :dependent => :destroy
+  has_many :votes, :dependent => :destroy
 
   validates_presence_of :email
   validates_presence_of :name
@@ -27,6 +27,10 @@ class Account < ActiveRecord::Base
     self.guest || false
   end
 
+  def submitter?
+    account_type == :submitter ? true : false
+  end
+
   def account_type
     case true
       when admin?  then :admin
@@ -38,7 +42,7 @@ class Account < ActiveRecord::Base
 
   private
   def disable_privileges
-    [:admin, :reviewer, :submitter].each do |t|
+    [:admin, :reviewer].each do |t|
       write_attribute(t, false)
     end
   end

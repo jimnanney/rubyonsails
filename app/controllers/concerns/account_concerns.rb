@@ -2,11 +2,11 @@ module AccountConcerns
   extend ActiveSupport::Concern
 
   included do
-    before_action :_setup_account!
+    before_action :setup_account!
   end
 
   private
-  def _setup_account!
+  def setup_account!
     @account = Account.find_account_or_give_guest({
       :id => session[:id]
     })
@@ -17,14 +17,23 @@ module AccountConcerns
   end
 
   private
-  def _admin?
-    unless @account && @account.admin?
+  def admin?
+    unless @account.admin?
       raise NotFoundError
     end
   end
 
   private
-  def _reviewer?
+  def submitter?
+    unless @account.submitter?
+      redirect_to :root, {
+        :error => "This action is for submitters only."
+      }
+    end
+  end
+
+  private
+  def reviewer?
     unless @account.reviewer?
       redirect_to :root, {
         :error => "This action is for reviewers only."
@@ -35,7 +44,7 @@ module AccountConcerns
   end
 
   private
-  def _submitter?
+  def submitter?
     unless @account.submitter?
       redirect_to :root, {
         :error => "This action is for submitters only."
@@ -44,29 +53,10 @@ module AccountConcerns
   end
 
   private
-  def _ensure_logged_in!
+  def ensure_logged_in!
     if @account.guest?
       redirect_to :root, {
         :error => "I don't think you belong there."
-      }
-
-      return false
-    end
-  end
-
-  def _ensure_verified_email!
-    unless @account.email_verified?
-      redirect_to :account, {
-        :error => "You need to verify your E-Mail before you can do."
-      }
-    end
-  end
-
-  private
-  def _ensure_not_logged_in!
-    unless @account.guest?
-      redirect_to :root, {
-        :error => "This action is for unauthenticated users."
       }
 
       return false
