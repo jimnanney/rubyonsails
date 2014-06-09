@@ -47,6 +47,10 @@
 
   nav {
     float: right;
+    width: 100%;
+
+    > ul:last-child  { float: right; }
+    > ul:first-child { float: left;  }
 
     > ul {
       padding: 0;
