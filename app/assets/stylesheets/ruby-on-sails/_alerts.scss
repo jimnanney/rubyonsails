@@ -1,6 +1,6 @@
 .alerts {
   @include clearfix();
-  margin: -$base-mp 0 0;
+  margin: -($base-mp * 2) 0 0;
   text-transform: uppercase;
   position: absolute;
   right: 0;
