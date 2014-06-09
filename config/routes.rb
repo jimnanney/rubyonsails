@@ -24,4 +24,11 @@ Rails.application.routes.draw do
   match "/submission", :via => [:patch, :post], :to => "submission#create"
   match "/submission/edit", :via => :get, :to => "submission#edit"
   match "/submission/new", :via => :get, :to => "submission#new"
+
+  # ---------------------------------------------------------------------------
+
+  namespace :admin do
+    match "/users", :via => :get, :to => "users#index"
+    match "/users/delete", :via => [:get, :delete], :to => "users#delete"
+  end
 end
