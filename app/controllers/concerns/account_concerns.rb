@@ -62,15 +62,4 @@ module AccountConcerns
       return false
     end
   end
-
-  private
-  def _ensure_not_logged_in!
-    unless @account.guest?
-      redirect_to :root, {
-        :error => "This action is for unauthenticated users."
-      }
-
-      return false
-    end
-  end
 end
