@@ -1,5 +1,4 @@
 class SubmissionController < ApplicationController
-  before_filter :clean_submissions, :only => :create
   before_filter :_submitter?
 
   allow_param({
@@ -39,13 +38,6 @@ class SubmissionController < ApplicationController
   def new
     if @account.submissions.any?
       raise UnauthorizedError
-    end
-  end
-
-  private
-  def clean_submissions
-    @account.submissions.where(:current => true).each do |s|
-      s.update(:current => false)
     end
   end
 end
