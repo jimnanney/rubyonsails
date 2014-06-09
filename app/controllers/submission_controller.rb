@@ -1,6 +1,6 @@
 class SubmissionController < ApplicationController
   before_filter :clean_submissions, :only => :create
-  before_filter :submitter?
+  before_filter :_submitter?
 
   allow_param({
     :submission => [
