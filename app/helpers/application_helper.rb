@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def admin_links
     out = "".html_safe
-    if @account.account_type == :admin
+    if @account.admin?
       out += content_tag :li do
         link_to "Manage Users", :admin_users
       end
@@ -27,7 +27,7 @@ module ApplicationHelper
 
   def submission_link
     out = "".html_safe
-    if @account.account_type == :submitter
+    if @account.submitter?
       if @account.submissions.any?
         out += content_tag :li do
           link_to "Review Submission", :submission

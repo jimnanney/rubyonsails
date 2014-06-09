@@ -18,14 +18,14 @@ module AccountConcerns
 
   private
   def admin?
-    unless @account && @account.admin?
+    unless @account.admin?
       raise NotFoundError
     end
   end
 
   private
   def submitter?
-    unless @account.type == :submitter
+    unless @account.submitter?
       redirect_to :root, {
         :error => "This action is for submitters only."
       }
@@ -34,7 +34,7 @@ module AccountConcerns
 
   private
   def reviewer?
-    unless @account.type == :reviewer
+    unless @account.reviewer?
       redirect_to :root, {
         :error => "This action is for reviewers only."
       }
