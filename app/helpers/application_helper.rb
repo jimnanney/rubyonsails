@@ -9,6 +9,7 @@ module ApplicationHelper
     out = "".html_safe
     out += content_tag :ul do
       case @account.account_type
+        when :reviewer  then review_links
         when :submitter then submission_link
         when :admin     then admin_links
       end
@@ -23,6 +24,15 @@ module ApplicationHelper
       end
     end
   out
+  end
+
+  def review_links
+    out = "".html_safe
+    if @account.reviewer?
+      out += content_tag :li do
+        link_to "Review Submissions", :review
+      end
+    end
   end
 
   def submission_link

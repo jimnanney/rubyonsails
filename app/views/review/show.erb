@@ -1,0 +1,26 @@
+<div class="row paper">
+  <%= markdown(@submission.text).html_safe %>
+</div>
+
+<div class="row">
+  <% css = "btn pull-right margin-top " %>
+  <%= simple_form_for @submission.comments.new, :url => :vote do |f| %>
+    <%= f.hidden_field :submission_id, :value => @submission.id %>
+
+    <div class="row">
+      <%= f.label :text, nil, {
+        :class => "form-label col-12 hidden"
+      } %>
+
+      <%= f.text_area :text, {
+        "data-provide" => "markdown",
+        "class" => "form-input col-12 textarea autosize",
+        "placeholder" => "Do you think you have what it takes?"
+      } %>
+    </div>
+
+    <%= f.button :submit, :value => :No,    :class => "btn-warning"  %>
+    <%= f.button :submit, :value => :Maybe, :class => "btn-info"     %>
+    <%= f.button :submit, :value => :Yes,   :class => "btn-success"  %>
+  <% end %>
+</div>

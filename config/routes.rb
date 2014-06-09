@@ -31,4 +31,12 @@ Rails.application.routes.draw do
     match "/users", :via => :get, :to => "users#index"
     match "/users/delete", :via => [:get, :delete], :to => "users#delete"
   end
+
+  # ---------------------------------------------------------------------------
+  # Review stuff.
+  # ---------------------------------------------------------------------------
+
+  match "/review", :via => :get, :to => "review#index"
+  match "/review/submission", :via => :get, :to => "review#show"
+  match "/vote", :via => :post, :to => "vote#create"
 end

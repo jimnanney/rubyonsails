@@ -1,0 +1,29 @@
+<div class="border-radius border">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Updated</th>
+        <th><!-- Empty --></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @submissions.each do |s| %>
+        <tr>
+          <td><%= s.title %></td>
+          <td><%= distance_of_time_in_words(Time.now, s.created_at) %> ago</td>
+          <td>
+            <% if s.votes.find_by(:account => @account) %>
+              <% txt = "Voted" %><% else %><% txt = "Vote" %>
+            <% end %>
+
+            <%= link_to txt, {
+              :id => s.id,
+              :action => :show
+            } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
