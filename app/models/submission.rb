@@ -1,7 +1,7 @@
 class Submission < ActiveRecord::Base
   self.class.send(:attr_accessor, :running_single_current)
+  [:comments, :votes].map { |f| has_many f, :dependent => :destroy }
   [:title   , :text ].map { |f| validates_presence_of f }
-  [:comments, :votes].map { |f| has_many f }
   belongs_to :account
 
   # ---------------------------------------------------------------------------

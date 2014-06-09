@@ -1,7 +1,7 @@
 class Account < ActiveRecord::Base
-  has_many :comments
-  has_many :submissions
-  has_many :votes
+  has_many :comments, :dependent => :destroy
+  has_many :submissions, :dependent => :destroy
+  has_many :votes, :dependent => :destroy
 
   validates_presence_of :email
   validates_presence_of :name
