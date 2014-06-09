@@ -24,8 +24,17 @@ module AccountConcerns
   end
 
   private
+  def _submitter?
+    unless @account.type == :submitter
+      redirect_to :root, {
+        :error => "This action is for submitters only."
+      }
+    end
+  end
+
+  private
   def _reviewer?
-    unless @account.reviewer?
+    unless @account.type == :reviewer
       redirect_to :root, {
         :error => "This action is for reviewers only."
       }

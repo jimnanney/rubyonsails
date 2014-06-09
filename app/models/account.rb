@@ -27,6 +27,10 @@ class Account < ActiveRecord::Base
     self.guest || false
   end
 
+  def submitter?
+    account_type == :submitter ? true : false
+  end
+
   def account_type
     case true
       when admin?  then :admin
