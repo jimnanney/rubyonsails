@@ -1,18 +1,19 @@
 .static.index {
   .masthead {
-    height: 100%;
     background-size: cover;
-    background-image: asset-url("header.jpg");
+    background-position: bottom center;
+    background-image: asset-url("hbg2.jpg");
+    text-align: center;
+    height: 100%;
 
     a {
-      float: right;
       width: 300px;
       position: relative;
       display: inline-block;
       border-radius: 300px;
       background-size: cover;
       background-color: $ros-blue;
-      background-image: asset-url("logo.png");
+      background-image: asset-url("logo-white.png");
       top: $base-mp * 3;
       right: $base-mp;
       bottom: 0;
